@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/localAlbumFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.app.lastfmcase.presentation.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/search_fragment">
+        <action
+            android:id="@+id/action_searchFragment_to_topAlbumFragment"
+            app:destination="@id/topAlbumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topAlbumFragment"
+        android:name="com.app.lastfmcase.presentation.album.TopAlbumFragment"
+        android:label="TopAlbumFragment"
+        tools:layout="@layout/top_album_fragment">
+        <argument
+            android:name="artistName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_topAlbumFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/localAlbumFragment"
+        android:name="com.app.lastfmcase.presentation.local.SavedAlbumFragment"
+        android:label="LocalAlbumFragment"
+        tools:layout="@layout/saved_album_fragment" >
+        <action
+            android:id="@+id/action_localAlbumFragment_to_albumDetailFragment"
+            app:destination="@id/albumDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumDetailFragment"
+        android:name="com.app.lastfmcase.presentation.album_detail.AlbumDetailFragment"
+        android:label="AlbumDetailFragment"
+        tools:layout="@layout/album_detail_fragment">
+        <argument
+            android:name="artistName"
+            app:argType="string" />
+        <argument
+            android:name="albumName"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
